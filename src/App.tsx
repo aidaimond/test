@@ -14,6 +14,8 @@ function App() {
         ]);
     };
 
+  console.log('123dsad');
+
     return (
         <div className="App">
             <Person name={people[0].name} age={people[0].age}>
