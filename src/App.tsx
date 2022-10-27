@@ -1,26 +1,33 @@
-import React from 'react';
-import logo from './logo.svg';
+import React, {useState} from 'react';
 import './App.css';
+import Person from "./Person/Person";
 
 function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+    const [people, setPeople] = useState([
+        {name: 'Aidai', age: 25, hobby: 'Draw'},
+        {name: 'Jhon', age: 28, hobby: 'Football'}
+    ]);
+    const changeName = () => {
+        setPeople([
+            {name: 'Aidai', age: 25, hobby: 'Drawing'},
+            {name: 'Jhon Doe', age: 28, hobby: 'Football'}
+        ]);
+    };
+
+    return (
+        <div className="App">
+            <Person name={people[0].name} age={people[0].age}>
+                <b>Hobby:{people[0].hobby}</b>
+            </Person>
+            <Person name={people[1].name} age={people[1].age}>
+                <b>Hobby:{people[1].hobby}</b>
+            </Person>
+           <div>
+               <button onClick={changeName}>Change Name</button>
+           </div>
+
+        </div>
+    );
 }
 
 export default App;
